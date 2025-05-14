@@ -1,0 +1,11 @@
+# Ignore Python junk
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore venv folder
+venv/
+
+# Ignore model and dataset files (optional)
+*.pth
+*.pkl
