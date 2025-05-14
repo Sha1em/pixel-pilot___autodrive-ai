@@ -134,10 +134,10 @@ def main():
         frame_count += 1
         time.sleep(0.1)
 
-# Save dataset to file at the end of the game
+
     # Save dataset to file at the end of the game
     import pickle, os
-
+    
     # 1) Ensure data/ exists
     os.makedirs('data', exist_ok=True)
 

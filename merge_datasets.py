@@ -44,6 +44,7 @@ if __name__ == "__main__":
     # Define your file names.
     # Use a permanent name for your master dataset.
     # point at the files inside data/
+    os.makedirs('data', exist_ok=True)
     master_file = os.path.join('data', 'master_game_dataset.pkl')
     new_file   = os.path.join('data', 'game_dataset.pkl')
     
