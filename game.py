@@ -134,11 +134,18 @@ def main():
         frame_count += 1
         time.sleep(0.1)
 
+# Save dataset to file at the end of the game
     # Save dataset to file at the end of the game
-    import pickle
-    with open('game_dataset.pkl', 'wb') as f:
+    import pickle, os
+
+    # 1) Ensure data/ exists
+    os.makedirs('data', exist_ok=True)
+
+    # 2) Write into data/
+    file_path = os.path.join('data', 'game_dataset.pkl')
+    with open(file_path, 'wb') as f:
         pickle.dump(dataset, f)
-    print("Dataset saved to game_dataset.pkl")
+    print(f"Dataset saved to {file_path}")
 
 if __name__ == "__main__":
     main()

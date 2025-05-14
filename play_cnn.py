@@ -93,7 +93,8 @@ class CNN(nn.Module):
 def main():
     # Load the trained CNN model.
     model = CNN()
-    model.load_state_dict(torch.load('cnn_model.pth'))
+    model_file = os.path.join('models', 'cnn_model.pth')
+    model.load_state_dict(torch.load(model_file))
     model.eval()  # Set model to evaluation mode.
 
     # Initialize the grid and place the car.

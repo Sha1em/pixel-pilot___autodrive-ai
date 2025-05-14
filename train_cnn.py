@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
+import os
 
 # Custom dataset class for game data.
 class GameDataset(Dataset):
@@ -59,7 +60,9 @@ class CNN(nn.Module):
 
 def main():
     # Load the dataset.
-    dataset = GameDataset('master_game_dataset.pkl')
+    # Load from data/
+    dataset_file = os.path.join('data', 'master_game_dataset.pkl')
+    dataset = GameDataset(dataset_file)
     dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
 
     model = CNN()
@@ -82,8 +85,13 @@ def main():
         print(f"Epoch {epoch+1}/{epochs}, Loss: {avg_loss:.4f}")
 
     # Save the model.
-    torch.save(model.state_dict(), 'cnn_model.pth')
-    print("CNN model saved as cnn_model.pth")
+    # 2) Ensure models/ exists
+    os.makedirs('models', exist_ok=True)
+
+    # 3) Save inside models/
+    model_path = os.path.join('models', 'cnn_model.pth')
+    torch.save(model.state_dict(), model_path)
+    print(f"CNN model saved as {model_path}")
 
 if __name__ == "__main__":
     main()

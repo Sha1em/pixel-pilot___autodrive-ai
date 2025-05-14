@@ -43,8 +43,8 @@ def merge_datasets(master_file, new_file):
 if __name__ == "__main__":
     # Define your file names.
     # Use a permanent name for your master dataset.
-    master_file = 'master_game_dataset.pkl'
-    # The new gameplay session is saved as:
-    new_file = 'game_dataset.pkl'
+    # point at the files inside data/
+    master_file = os.path.join('data', 'master_game_dataset.pkl')
+    new_file   = os.path.join('data', 'game_dataset.pkl')
     
     merge_datasets(master_file, new_file)

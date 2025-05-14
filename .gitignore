@@ -7,5 +7,5 @@ __pycache__/
 venv/
 
 # Ignore model and dataset files (optional)
-*.pth
-*.pkl
+#*.pth
+#*.pkl
